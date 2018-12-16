@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Repository
-public class StudentDAOImpl implements StudentDAO {
+public class StudentDAOImpl implements StudentDAO{
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -19,7 +19,6 @@ public class StudentDAOImpl implements StudentDAO {
     public List<Student> getStudents() {
         Session session = sessionFactory.getCurrentSession();
         List<Student> students = session.createQuery("from Student", Student.class).getResultList();
-
         return students;
     }
 }
