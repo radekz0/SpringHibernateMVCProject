@@ -11,6 +11,8 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$
+  Registered students list:
+  <br>
+  <a href="/home">Click here</a>
   </body>
 </html>

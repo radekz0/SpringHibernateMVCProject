@@ -9,12 +9,17 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+//We are creating DAO for connection with db.
+
+//Special annotation for DAO implementations. It provides translation for any JDBC related exceptions.
 @Repository
 public class StudentDAOImpl implements StudentDAO{
 
+    //Injecting sessionFactory bean into the DAO.
     @Autowired
     private SessionFactory sessionFactory;
 
+    //Transactional handles beginTransaction() and commit, which makes the code more compact. It was moved from the DAO's method.
     @Transactional
     public List<Student> getStudents() {
         Session session = sessionFactory.getCurrentSession();
