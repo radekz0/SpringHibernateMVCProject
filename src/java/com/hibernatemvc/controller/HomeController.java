@@ -43,4 +43,10 @@ public class HomeController {
         model.addAttribute("student", student);
         return "studentForm";
     }
+
+    @GetMapping("/formForDelete")
+    public String formForDelete(@RequestParam("studentId") int studentId){
+        studentService.deleteStudent(studentId);
+        return "redirect:/home";
+    }
 }

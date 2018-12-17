@@ -27,8 +27,11 @@ public class StudentDAOImpl implements StudentDAO{
         return students;
     }
 
-    public void deleteStudent() {
-        //asd
+    @Transactional
+    public void deleteStudent(int id) {
+        Session session = sessionFactory.getCurrentSession();
+        Student student = session.get(Student.class, id);
+        session.delete(student);
     }
 
     @Transactional
@@ -38,9 +41,9 @@ public class StudentDAOImpl implements StudentDAO{
     }
 
     @Transactional
-    public Student getStudent(int theId) {
+    public Student getStudent(int id) {
         Session session = sessionFactory.getCurrentSession();
-        Student student = session.get(Student.class, theId);
+        Student student = session.get(Student.class, id);
         return student;
     }
 }

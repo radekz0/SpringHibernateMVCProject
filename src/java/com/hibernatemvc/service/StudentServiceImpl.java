@@ -24,8 +24,8 @@ public class StudentServiceImpl implements StudentService {
         return students;
     }
 
-    public void deleteStudent() {
-        studentDAO.deleteStudent();
+    public void deleteStudent(int id) {
+        studentDAO.deleteStudent(id);
     }
 
     public void addStudent(Student student) {

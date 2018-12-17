@@ -18,17 +18,28 @@ This is a home page.
                     <th>First Name</th>
                     <th>Last Name</th>
                     <th>Email</th>
+                    <th>Action</th>
                 </tr>
                 <c:forEach var="tempCustomer" items="${students}">
+
                     <c:url var="updateLink" value="/formForUpdate">
                         <c:param name="studentId" value="${tempCustomer.id}"/>
                     </c:url>
+
+                    <c:url var="deleteLink" value="/formForDelete">
+                        <c:param name="studentId" value="${tempCustomer.id}"/>
+                    </c:url>
+
                     <tr>
                         <td>${tempCustomer.firstName}</td>
                         <td>${tempCustomer.lastName}</td>
                         <td>${tempCustomer.email}</td>
                         <td>
                             <a href="${updateLink}">Update</a>
+                        </td>
+                        <td>
+                            <a href="${deleteLink}"
+                            onclick="if(!(confirm('Are you sure you want to delete this Student?'))) return false">Delete</a>
                         </td>
                     </tr>
                 </c:forEach>
