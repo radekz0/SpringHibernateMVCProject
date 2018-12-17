@@ -13,6 +13,7 @@ This is a home page.
 
     <div id = "container">
         <div id = "content">
+            <input type="button" value="Add Customer" onclick="window.location.href='formForAdd'"/>
             <table>
                 <tr>
                     <th>First Name</th>

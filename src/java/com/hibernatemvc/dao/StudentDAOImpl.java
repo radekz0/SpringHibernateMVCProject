@@ -23,7 +23,17 @@ public class StudentDAOImpl implements StudentDAO{
     @Transactional
     public List<Student> getStudents() {
         Session session = sessionFactory.getCurrentSession();
-        List<Student> students = session.createQuery("from Student", Student.class).getResultList();
+        List<Student> students = session.createQuery("from Student ORDER BY lastName", Student.class).getResultList();
         return students;
+    }
+
+    public void deleteStudent() {
+        //asd
+    }
+
+    @Transactional
+    public void addStudent(Student student) {
+        Session session = sessionFactory.getCurrentSession();
+        session.save(student);
     }
 }

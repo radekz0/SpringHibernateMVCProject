@@ -7,8 +7,7 @@ package com.hibernatemvc.controller;
         import org.springframework.beans.factory.annotation.Autowired;
         import org.springframework.stereotype.Controller;
         import org.springframework.ui.Model;
-        import org.springframework.web.bind.annotation.GetMapping;
-        import org.springframework.web.bind.annotation.RequestMapping;
+        import org.springframework.web.bind.annotation.*;
 
         import java.util.List;
 
@@ -24,5 +23,18 @@ public class HomeController {
         List<Student> studentList = studentService.getStudents();
         model.addAttribute("students",studentList);
         return "home";
+    }
+
+    @GetMapping("/formForAdd")
+    public String formForAdd(Model model){
+        Student theStudent = new Student();
+        model.addAttribute("student", theStudent);
+        return "formForAdd";
+    }
+
+    @PostMapping("/saveStudent")
+    public String saveStudent(@ModelAttribute("student") Student student){
+        studentService.addStudent(student);
+        return "redirect:/home";
     }
 }

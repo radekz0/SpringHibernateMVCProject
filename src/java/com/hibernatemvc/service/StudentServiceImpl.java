@@ -23,4 +23,12 @@ public class StudentServiceImpl implements StudentService {
         List<Student> students = studentDAO.getStudents();
         return students;
     }
+
+    public void deleteStudent() {
+        studentDAO.deleteStudent();
+    }
+
+    public void addStudent(Student student) {
+        studentDAO.addStudent(student);
+    }
 }
