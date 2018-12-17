@@ -1,6 +1,5 @@
 package com.hibernatemvc.controller;
 
-        import com.hibernatemvc.dao.StudentDAO;
         import com.hibernatemvc.entity.Student;
         import com.hibernatemvc.service.StudentService;
         import org.apache.log4j.BasicConfigurator;
@@ -25,16 +24,23 @@ public class HomeController {
         return "home";
     }
 
-    @GetMapping("/formForAdd")
+    @GetMapping("/studentForm")
     public String formForAdd(Model model){
         Student theStudent = new Student();
         model.addAttribute("student", theStudent);
-        return "formForAdd";
+        return "studentForm";
     }
 
     @PostMapping("/saveStudent")
     public String saveStudent(@ModelAttribute("student") Student student){
         studentService.addStudent(student);
         return "redirect:/home";
+    }
+
+    @GetMapping("/formForUpdate")
+    public String formForUpdate(@RequestParam("studentId") int id, Model model){
+        Student student = studentService.getStudent(id);
+        model.addAttribute("student", student);
+        return "studentForm";
     }
 }

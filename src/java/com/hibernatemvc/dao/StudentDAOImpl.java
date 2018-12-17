@@ -34,6 +34,13 @@ public class StudentDAOImpl implements StudentDAO{
     @Transactional
     public void addStudent(Student student) {
         Session session = sessionFactory.getCurrentSession();
-        session.save(student);
+        session.saveOrUpdate(student);
+    }
+
+    @Transactional
+    public Student getStudent(int theId) {
+        Session session = sessionFactory.getCurrentSession();
+        Student student = session.get(Student.class, theId);
+        return student;
     }
 }

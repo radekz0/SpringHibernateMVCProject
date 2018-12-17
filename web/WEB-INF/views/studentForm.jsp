@@ -16,6 +16,8 @@
 <div>
     <h3>Save Student</h3>
     <form:form action="saveStudent" modelAttribute="student" method="POST">
+        <%--This line keeps track on which Student are we working on. With it we can recognize if it's an existing Student and just updating or adding a new one--%>
+        <form:hidden path="id"/>
         <table>
             <tbody>
                 <tr>

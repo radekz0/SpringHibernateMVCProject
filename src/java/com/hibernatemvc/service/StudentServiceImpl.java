@@ -31,4 +31,9 @@ public class StudentServiceImpl implements StudentService {
     public void addStudent(Student student) {
         studentDAO.addStudent(student);
     }
+
+    public Student getStudent(int id) {
+        Student student = studentDAO.getStudent(id);
+        return student;
+    }
 }
