@@ -36,4 +36,9 @@ public class StudentServiceImpl implements StudentService {
         Student student = studentDAO.getStudent(id);
         return student;
     }
+
+    public List<Student> searchStudents(String searchName) {
+        List<Student> studentList = studentDAO.searchStudents(searchName);
+        return studentList;
+    }
 }

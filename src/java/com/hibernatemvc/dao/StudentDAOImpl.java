@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.Query;
 import java.util.List;
 
 //We are creating DAO for connection with db.
@@ -45,5 +46,30 @@ public class StudentDAOImpl implements StudentDAO{
         Session session = sessionFactory.getCurrentSession();
         Student student = session.get(Student.class, id);
         return student;
+    }
+
+    @Transactional
+    public List<Student> searchStudents(String searchName) {
+        Session currentSession = sessionFactory.getCurrentSession();
+
+        Query theQuery = null;
+
+        // only search by name if theSearchName is not empty
+        if (searchName != null && searchName.trim().length() > 0) {
+
+            // search for firstName or lastName ... case insensitive
+            theQuery =currentSession.createQuery("from Student where lower(firstName) like :theName or lower(lastName) like :theName", Student.class);
+            theQuery.setParameter("theName", "%" + searchName.toLowerCase() + "%");
+
+        }
+        else {
+            // If searchName is empty return all Students
+            theQuery =currentSession.createQuery("from Student", Student.class);
+        }
+
+        List<Student> studentList = theQuery.getResultList();
+
+        return studentList;
+
     }
 }

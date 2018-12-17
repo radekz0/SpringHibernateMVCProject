@@ -10,4 +10,6 @@ public interface StudentService {
     public void addStudent(Student student);
 
     public Student getStudent(int id);
+
+    public List<Student> searchStudents(String searchName);
 }

@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <html>
 <head>
     <title>Home Page</title>
@@ -12,7 +13,15 @@ This is a home page.
 
     <div id = "container">
         <div id = "content">
-            <input type="button" value="Add Customer" onclick="window.location.href='studentForm'"/>
+            <input type="button" value="Add Student" onclick="window.location.href='studentForm'"/>
+            <br>
+            <!--  search box -->
+            <form:form action="search" method="POST">
+                Search: <input type="text" name="searchName" />
+
+                <input type="submit" value="Search" />
+            </form:form>
+
             <table>
                 <tr>
                     <th>First Name</th>
@@ -20,20 +29,20 @@ This is a home page.
                     <th>Email</th>
                     <th>Action</th>
                 </tr>
-                <c:forEach var="tempCustomer" items="${students}">
+                <c:forEach var="tempStudent" items="${students}">
 
                     <c:url var="updateLink" value="/formForUpdate">
-                        <c:param name="studentId" value="${tempCustomer.id}"/>
+                        <c:param name="studentId" value="${tempStudent.id}"/>
                     </c:url>
 
                     <c:url var="deleteLink" value="/formForDelete">
-                        <c:param name="studentId" value="${tempCustomer.id}"/>
+                        <c:param name="studentId" value="${tempStudent.id}"/>
                     </c:url>
 
                     <tr>
-                        <td>${tempCustomer.firstName}</td>
-                        <td>${tempCustomer.lastName}</td>
-                        <td>${tempCustomer.email}</td>
+                        <td>${tempStudent.firstName}</td>
+                        <td>${tempStudent.lastName}</td>
+                        <td>${tempStudent.email}</td>
                         <td>
                             <a href="${updateLink}">Update</a>
                         </td>

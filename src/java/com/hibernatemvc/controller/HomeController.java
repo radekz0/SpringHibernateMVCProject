@@ -49,4 +49,12 @@ public class HomeController {
         studentService.deleteStudent(studentId);
         return "redirect:/home";
     }
+
+    @PostMapping("/search")
+    public String searchStudents(@RequestParam("searchName") String searchName, Model model){
+        List<Student> studentList = studentService.searchStudents(searchName);
+
+        model.addAttribute("students", studentList);
+        return "home";
+    }
 }
