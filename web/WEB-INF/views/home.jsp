@@ -7,9 +7,6 @@
 <body>
 This is a home page.
 <div id = "wrapper">
-    <div id = "header">
-        <h2>Students manager</h2>
-    </div>
 
     <div id = "container">
         <div id = "content">

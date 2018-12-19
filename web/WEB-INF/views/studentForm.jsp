@@ -35,6 +35,11 @@
                 </tr>
 
                 <tr>
+                    <td><label>Password:</label></td>
+                    <td><form:input path="password"/></td>
+                </tr>
+
+                <tr>
                     <td><label></label></td>
                     <td><input type="submit" value="Save"/></td>
                 </tr>

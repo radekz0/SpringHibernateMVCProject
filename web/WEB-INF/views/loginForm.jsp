@@ -18,13 +18,13 @@
         <table>
             <tbody>
             <tr>
-                <td><label>First name:</label></td>
-                <td><form:input path="firstName"/></td>
+                <td><label>Email:</label></td>
+                <td><form:input path="email"/></td>
             </tr>
 
             <tr>
-                <td><label>Last name:</label></td>
-                <td><form:input path="lastName"/></td>
+                <td><label>Password:</label></td>
+                <td><form:input path="password"/></td>
             </tr>
 
             <tr>

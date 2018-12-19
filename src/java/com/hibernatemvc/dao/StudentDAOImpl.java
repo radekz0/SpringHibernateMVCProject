@@ -54,10 +54,10 @@ public class StudentDAOImpl implements StudentDAO{
 
         Query theQuery = null;
 
-        // only search by name if theSearchName is not empty
+        //Only search by name if theSearchName is not empty.
         if (searchName != null && searchName.trim().length() > 0) {
 
-            // search for firstName or lastName ... case insensitive
+            //Search for firstName or lastName case insensitive.
             theQuery =currentSession.createQuery("from Student where lower(firstName) like :theName or lower(lastName) like :theName", Student.class);
             theQuery.setParameter("theName", "%" + searchName.toLowerCase() + "%");
 
@@ -73,14 +73,15 @@ public class StudentDAOImpl implements StudentDAO{
 
     }
 
+    //
     @Transactional
     public Student studentValidation(Student checkStudent) {
         Session session = sessionFactory.getCurrentSession();
-        String checkStudentFirstName = checkStudent.getFirstName();
-        String checkStudentLastName = checkStudent.getLastName();
-        Query query = session.createQuery("from Student where lower(firstName) like :theFirstName and lower(lastName) like :theLastName", Student.class);
-        query.setParameter("theFirstName", checkStudentFirstName.toLowerCase());
-        query.setParameter("theLastName", checkStudentLastName.toLowerCase());
+        String checkStudentEmail = checkStudent.getEmail();
+        String checkStudentPassword = checkStudent.getPassword();
+        Query query = session.createQuery("from Student where lower(email) like :theEmail and lower(password) like :thePassword", Student.class);
+        query.setParameter("theEmail", checkStudentEmail.toLowerCase());
+        query.setParameter("thePassword", checkStudentPassword.toLowerCase());
         List<Student> studentList = query.getResultList();
 
         try{

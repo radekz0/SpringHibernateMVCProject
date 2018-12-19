@@ -11,13 +11,20 @@
     <title>$Title$</title>
   </head>
   <body>
-  Registered students list:
-  <br>
-  <a href="/home">Click here</a>
-  <br>
-  <br>
-  Login:
-  <br>
-  <a href="/login">Click here</a>
+  <div id = "header" align="center">
+    <h2>Welcome to the student manager</h2>
+  </div>
+  <div align="center">
+    <a href="/login">Login</a> &nbsp;&nbsp;<a href="/home">Register</a>
+  </div>
+  <div align="center">
+    <br>
+    <br>
+    <br>
+    <br>
+    We have x students registered.
+    <br>
+    <input type="button" value="Registered students list" onclick="window.location.href='home'"/>
+  </div>
   </body>
 </html>
