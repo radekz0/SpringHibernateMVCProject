@@ -41,4 +41,9 @@ public class StudentServiceImpl implements StudentService {
         List<Student> studentList = studentDAO.searchStudents(searchName);
         return studentList;
     }
+
+    public Student studentValidation(Student checkStudent) {
+        Student student = studentDAO.studentValidation(checkStudent);
+        return student;
+    }
 }

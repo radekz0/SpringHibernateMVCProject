@@ -72,4 +72,23 @@ public class StudentDAOImpl implements StudentDAO{
         return studentList;
 
     }
+
+    @Transactional
+    public Student studentValidation(Student checkStudent) {
+        Session session = sessionFactory.getCurrentSession();
+        String checkStudentFirstName = checkStudent.getFirstName();
+        String checkStudentLastName = checkStudent.getLastName();
+        Query query = session.createQuery("from Student where lower(firstName) like :theFirstName and lower(lastName) like :theLastName", Student.class);
+        query.setParameter("theFirstName", checkStudentFirstName.toLowerCase());
+        query.setParameter("theLastName", checkStudentLastName.toLowerCase());
+        List<Student> studentList = query.getResultList();
+
+        try{
+            Student student = studentList.get(0);
+            return student;
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

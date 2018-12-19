@@ -12,4 +12,6 @@ public interface StudentDAO {
     public Student getStudent(int id);
 
     public List<Student> searchStudents(String searchName);
+
+    public Student studentValidation(Student checkStudent);
 }

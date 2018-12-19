@@ -57,4 +57,23 @@ public class HomeController {
         model.addAttribute("students", studentList);
         return "home";
     }
+
+    @GetMapping("/login")
+    public String loginForm(Model model){
+        Student checkStudent = new Student();
+        model.addAttribute("cStudent",checkStudent);
+        return "loginForm";
+    }
+
+    @PostMapping("/checkStudent")
+    public String checkStudent(@ModelAttribute("cStudent") Student checkStudent){
+        Student student = studentService.studentValidation(checkStudent);
+        if(student != null){
+            return "welcome";
+        }
+        else{
+            return "redirect:/home";
+        }
+
+    }
 }

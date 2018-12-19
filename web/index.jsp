@@ -14,5 +14,10 @@
   Registered students list:
   <br>
   <a href="/home">Click here</a>
+  <br>
+  <br>
+  Login:
+  <br>
+  <a href="/login">Click here</a>
   </body>
 </html>
