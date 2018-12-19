@@ -15,7 +15,7 @@
     <h2>Welcome to the student manager</h2>
   </div>
   <div align="center">
-    <a href="/login">Login</a> &nbsp;&nbsp;<a href="/home">Register</a>
+    <a href="/login">Login</a> &nbsp;&nbsp;<a href="/studentForm">Register</a>
   </div>
   <div align="center">
     <br>

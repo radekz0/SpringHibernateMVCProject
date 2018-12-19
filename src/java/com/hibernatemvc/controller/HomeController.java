@@ -66,8 +66,9 @@ public class HomeController {
     }
 
     @PostMapping("/checkStudent")
-    public String checkStudent(@ModelAttribute("cStudent") Student checkStudent){
+    public String checkStudent(@ModelAttribute("cStudent") Student checkStudent, Model model){
         Student student = studentService.studentValidation(checkStudent);
+        model.addAttribute("validStudent",student);
         if(student != null){
             return "welcome";
         }

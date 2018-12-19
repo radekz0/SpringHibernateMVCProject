@@ -36,7 +36,7 @@
         </table>
     </form:form>
     <p>
-        <a href="/home">Back to home</a>
+        <a href="/">Back to home</a>
     </p>
 </div>
 </body>

@@ -5,13 +5,11 @@
     <title>Home Page</title>
 </head>
 <body>
-This is a home page.
+<h3>Registered students list</h3>
 <div id = "wrapper">
 
     <div id = "container">
         <div id = "content">
-            <input type="button" value="Add Student" onclick="window.location.href='studentForm'"/>
-            <br>
             <!--  search box -->
             <form:form action="search" method="POST">
                 Search: <input type="text" name="searchName" />
@@ -53,5 +51,10 @@ This is a home page.
         </div>
     </div>
 </div>
+<br>
+<br>
+<a href="/login">Login</a>
+<br>
+<a href="/">Back to home</a>
 </body>
 </html>
