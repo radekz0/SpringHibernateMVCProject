@@ -22,7 +22,7 @@
     <br>
     <br>
     <br>
-    We have x students registered.
+    We have <b>${studentCount}</b> students registered.
     <br>
     <input type="button" value="Registered students list" onclick="window.location.href='home'"/>
   </div>

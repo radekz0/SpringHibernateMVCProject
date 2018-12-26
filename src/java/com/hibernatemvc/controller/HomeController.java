@@ -20,8 +20,18 @@ public class HomeController {
     public String homePage(Model model){
         BasicConfigurator.configure();
         List<Student> studentList = studentService.getStudents();
+        int studentCount = studentList.size();
+        model.addAttribute("studentCount", studentCount);
         model.addAttribute("students",studentList);
         return "home";
+    }
+
+    @GetMapping("/")
+    public String indexPage(Model model){
+        List<Student> studentList = studentService.getStudents();
+        int studentCount = studentList.size();
+        model.addAttribute("studentCount", studentCount);
+        return "index";
     }
 
     @GetMapping("/studentForm")
@@ -75,6 +85,5 @@ public class HomeController {
         else{
             return "redirect:/home";
         }
-
     }
 }
