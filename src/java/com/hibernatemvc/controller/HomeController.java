@@ -44,7 +44,7 @@ public class HomeController {
     @PostMapping("/saveStudent")
     public String saveStudent(@ModelAttribute("student") Student student){
         studentService.addStudent(student);
-        return "redirect:/home";
+        return "redirect:/";
     }
 
     @GetMapping("/formForUpdate")
