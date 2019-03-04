@@ -1,8 +1,10 @@
-#Hibernate MVC Project
+# Hibernate MVC Project
+
 
 It's a student's management app made in Spring.
 
-###Features:
+
+### Features:
 - login/register forms,
 - registered students list with their basic details,
 - search bar that allows to find student by entering fragments of their name,
