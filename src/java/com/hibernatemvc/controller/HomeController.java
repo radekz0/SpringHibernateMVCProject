@@ -16,17 +16,17 @@ public class HomeController {
     @Autowired
     private StudentService studentService;
 
-    @GetMapping("/home")
+    @GetMapping("/list")
     public String homePage(Model model){
         BasicConfigurator.configure();
         List<Student> studentList = studentService.getStudents();
         int studentCount = studentList.size();
         model.addAttribute("studentCount", studentCount);
         model.addAttribute("students",studentList);
-        return "home";
+        return "list";
     }
 
-    @GetMapping("/")
+    @GetMapping({"/home","/"})
     public String indexPage(Model model){
         List<Student> studentList = studentService.getStudents();
         int studentCount = studentList.size();
@@ -65,7 +65,7 @@ public class HomeController {
         List<Student> studentList = studentService.searchStudents(searchName);
 
         model.addAttribute("students", studentList);
-        return "home";
+        return "list";
     }
 
     @GetMapping("/login")

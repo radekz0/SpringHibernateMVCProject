@@ -35,31 +35,44 @@
 
 <body>
 <div class="bg">
-<div align="center">
-    <h2>Welcome ${validStudent.firstName}!</h2>
-</div>
-<div>
-    <c:url var="updateLink" value="/formForUpdate">
-        <c:param name="studentId" value="${validStudent.id}"/>
-    </c:url>
-    <c:url var="deleteLink" value="/formForDelete">
-        <c:param name="studentId" value="${validStudent.id}"/>
-    </c:url>
+    <div id = "header" align="center">
+        <br/>
+        <h1 class="text-default">Registered students list</h1>
+    </div>
+<div id = "wrapper" align="center">
 
-    <h3><p style="color:#3d6eff">Your details:</p></h3>
-    <b>First name:</b> ${validStudent.firstName}
     <br>
-    <b>Last name:</b> ${validStudent.lastName}
-    <br>
-    <b>Email:</b> ${validStudent.email}
-    <br>
-    <b>Password:</b> ${validStudent.password}
-    <br>
-    <a href="${updateLink}"><button class="badge-dark">Update</button></a>&nbsp; <a href="${deleteLink}"
-       onclick="if(!(confirm('Are you sure you want to delete your account?'))) return false"><button>Delete</button></a>
-    <br>
-    <input type="button" value="Back to home" onclick="window.location.href='home'"/>
+    <div id = "container">
+        <div id = "content">
+            <!--  search box -->
+            <form:form action="search" method="POST" class="form-inline my-2 my-lg-0">
+                <input type="text" name="searchName" class="form-control mr-sm-2" placeholder="Search" aria-label="Search"/>
+
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form:form>
+
+            <table class="table table-striped">
+                <tr>
+                    <th style="color: green">First Name</th>
+                    <th style="color: green">Last Name</th>
+                    <th style="color: green">Email</th>
+                </tr>
+                <c:forEach var="tempStudent" items="${students}">
+                    <tr>
+                        <td>${tempStudent.firstName}</td>
+                        <td>${tempStudent.lastName}</td>
+                        <td>${tempStudent.email}</td>
+                    </tr>
+                </c:forEach>
+            </table>
+        </div>
+    </div>
 </div>
+<br>
+<br>
+    <a href="/login" class="btn btn-primary" role="button">Login</a>
+<br>
+    <input type="button" value="Back to home" onclick="window.location.href='home'"/>
 </div>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
